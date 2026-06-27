@@ -9,6 +9,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 IGNORED_DIRS = {".git", ".pytest_cache", "__pycache__"}
 IGNORED_PREFIXES = ("outputs_", "reports")
+README_EXCEPTIONS = {
+    ".github": "FOLDER_README.md",
+}
 
 
 def iter_relevant_dirs() -> list[Path]:
@@ -30,7 +33,7 @@ def test_every_subfolder_has_readme():
     missing = [
         str(path.relative_to(ROOT))
         for path in iter_relevant_dirs()
-        if not (path / "README.md").exists()
+        if not (path / README_EXCEPTIONS.get(str(path.relative_to(ROOT)), "README.md")).exists()
     ]
     assert missing == []
 

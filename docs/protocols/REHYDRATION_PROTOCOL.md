@@ -16,7 +16,7 @@ Rehydration restores repository context before an agent edits code, promotes cla
 4. `docs/context/repository_context_index.json`
 5. `docs/context/rcc_nexus_index.json`
 6. `rcc/nexus/route_map.json`
-7. The nearest folder-level `README.md` for touched files
+7. The nearest folder-level `README.md` for touched files, or `FOLDER_README.md` inside reserved metadata folders such as `.github`
 
 ## Minimum Validation
 

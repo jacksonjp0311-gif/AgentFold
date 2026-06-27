@@ -20,6 +20,6 @@
   "route_map": "rcc/nexus/route_map.json",
   "genesis_source": "https://gist.github.com/jacksonjp0311-gif/2d92eb0f12bba782639460f18a426f42",
   "cross_domain_analysis": "docs/cross_domain/alphafold_genome_rna_agentfold_analysis.md",
-  "mini_readme_policy": "Every non-generated subfolder should contain README.md with local purpose and boundary.",
+  "mini_readme_policy": "Every non-generated subfolder should contain README.md with local purpose and boundary. Reserved GitHub metadata folders may use FOLDER_README.md to avoid overriding repository display surfaces.",
   "claim_boundary": "RCC-N improves repository orientation and patch routing; it does not prove correctness or safety."
 }

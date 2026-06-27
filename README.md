@@ -3,8 +3,6 @@
 # 🧬 AgentFold
 
 ### *Evidence-Gated Agent Folding Runtime* 
-<img width="458" height="261" alt="image" src="https://github.com/user-attachments/assets/66eabcc8-6270-42d4-9802-faa22db27dc9" />
-
 
 **Sequence-to-Behavior Inspection for Memory-Bearing, Tool-Using AI Agents**
 
@@ -21,6 +19,8 @@
 > 🔬 **AgentFold tests a single, rigorous question:** *Can an agent run declare its genome, align to origin, execute under trace, build a behavioral fold graph, detect misfolds, score fitness, gate compounding, write an append-only ledger, and admit only validated deltas into inheritance?*
 
 </div>
+
+<img width="458" height="261" alt="image" src="https://github.com/user-attachments/assets/355ee9be-a7b1-4434-9745-119275860832" />
 
 ---
 

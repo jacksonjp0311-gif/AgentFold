@@ -2,7 +2,9 @@
 
 # 🧬 AgentFold
 
-### *Evidence-Gated Agent Folding Runtime*
+### *Evidence-Gated Agent Folding Runtime* 
+<img width="458" height="261" alt="image" src="https://github.com/user-attachments/assets/66eabcc8-6270-42d4-9802-faa22db27dc9" />
+
 
 **Sequence-to-Behavior Inspection for Memory-Bearing, Tool-Using AI Agents**
 

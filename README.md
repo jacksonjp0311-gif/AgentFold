@@ -130,7 +130,72 @@ This repo uses the **RCC-N navigation shell** for human and AI orientation:
 | **PART II — RCC Nexus** | Route maps, context indexes, governance | AI agents, CI systems |
 | **PART III — AI Agent** | Operating rules, patch routes, update policy | Autonomous agents |
 
-### 🗂️ Project Structure
+---
+
+# PART I - Human README
+
+## Current Identity
+
+AgentFold is a local Python package for testing whether agent behavior can be bounded by declared substrate and evidence:
+
+- declare an AgentGenome,
+- certify origin alignment,
+- capture runtime expression events,
+- build an AgentTranscriptome,
+- construct a BehavioralFoldGraph,
+- predict risk before or during folding,
+- detect misfolds,
+- evaluate fitness,
+- apply compounding gates,
+- emit fold certificates,
+- append ledger records,
+- block unsafe inheritance,
+- preserve non-claim boundaries.
+
+The current repo is a scaffold with working local tests. It is not a production agent runtime.
+
+## What AgentFold Tests
+
+| Task | Purpose |
+|---|---|
+| Genome validation | Ensures declared agent substrate has required IDs, claim ceiling, tools, permissions, and evidence boundaries. |
+| Origin alignment | Blocks compounding when the session cannot anchor to declared origin. |
+| Transcript capture | Records runtime expression events before inheritance is allowed. |
+| Fold graph construction | Converts observed events into a causal/semantic graph. |
+| Misfold detection | Detects origin drift, claim overreach, evidence gaps, and unsafe compounding signals. |
+| Compounding gate | Permits, warns, repairs, shadows, blocks, or requires human review. |
+| Ledger continuity | Writes append-only JSONL entries with hash linkage. |
+| Inheritance controls | Promotes only validated deltas. |
+
+AgentFold rewards bounded evidence emission and durable auditability, not confident overclaiming.
+
+## Genesis Source Alignment
+
+The original AF-SA v0.1.0 gist is now treated as the canonical architecture source for future evolution:
+
+> 📎 **Genesis Source:** https://gist.github.com/jacksonjp0311-gif/2d92eb0f12bba782639460f18a426f42
+
+AgentFold v0.1.1 implements only the local scaffold and repository geometry around that source. The next evolution path is to move more of the genesis architecture from prose into validated runtime surfaces: replayable evidence packets, phenotype records, fold certificates, release functionals, authority locks, and transcript-to-ledger inheritance.
+
+**Boundary:** Source alignment preserves intent and traceability. It does not prove that every architectural concept is implemented yet.
+
+## Current Hardening Layer
+
+The current hardening layer includes:
+
+- README trisection,
+- 90-second orientation file,
+- rehydration protocol,
+- route map and context indexes,
+- mini README Echo Location records,
+- working Click CLI,
+- repaired tests,
+- enum-safe misfold events,
+- hashchain continuation across writer instances,
+- origin certificate construction compatible with tests,
+- explicit non-claim lock.
+
+## Project Structure
 
 ```
 agentfold/
@@ -169,6 +234,104 @@ agentfold/
 ├── releases/                     # Release candidate manifests and seals
 └── reports/                      # Generated evidence reports
 ```
+
+---
+
+# PART II - RCC Nexus README
+
+## RCC Nexus Purpose
+
+The RCC Nexus layer makes AgentFold orientable to humans and AI agents by exposing:
+
+- repository identity,
+- route maps,
+- folder responsibilities,
+- validation surfaces,
+- non-claim boundaries,
+- rehydration order,
+- safe patch routes.
+
+## Nexus Entry Points
+
+| Entry | Purpose |
+|---|---|
+| `docs/context/repository_context_index.json` | Machine-readable repository map. |
+| `docs/context/rcc_nexus_index.json` | RCC-N navigation and governance index. |
+| `rcc/nexus/route_map.json` | Route map from intent to files and validation. |
+| `docs/protocols/REHYDRATION_PROTOCOL.md` | Agent rehydration and safe-work protocol. |
+
+## Echo Location Block
+
+Repository self-location:
+
+```
+repo: agentfold
+layer: AF-SA v1.4.0
+role: evidence-gated agent folding scaffold
+primary package: agentfold
+validation: python -m pytest -q
+boundary: local scaffold validation only
+```
+
+## RCC-N Boundary
+
+RCC-N improves navigation and patch safety. It does not prove:
+
+- code correctness,
+- security,
+- empirical validity,
+- production readiness,
+- AI understanding,
+- agent autonomy,
+- truth of claims,
+- biological equivalence.
+
+---
+
+# PART III - AI Agent README
+
+## Required Read Order
+
+1. `README.md`
+2. `README_90_SECONDS.md`
+3. `docs/protocols/REHYDRATION_PROTOCOL.md`
+4. `docs/context/repository_context_index.json`
+5. `docs/context/rcc_nexus_index.json`
+6. `rcc/nexus/route_map.json`
+7. Local folder README for the files being changed
+
+## Agent Operating Rules
+
+- Preserve user changes.
+- Inspect `git status --short --branch` before edits.
+- Do not promote claims beyond local validation.
+- Do not imply AGI, consciousness, biological equivalence, production readiness, or autonomous authority.
+- Keep edits scoped to the route being touched.
+- Run `python -m pytest -q` before claiming the repo is healthy.
+- Update mini READMEs when adding folders.
+- Update context indexes when adding major surfaces.
+
+## Patch Routes
+
+| Intent | Route |
+|---|---|
+| Genome/schema changes | `agentfold/genome/`, then genome tests |
+| Origin/rehydration changes | `agentfold/origin/`, `docs/protocols/`, then origin tests |
+| Runtime transcript changes | `agentfold/transcriptome/`, `agentfold/expression/`, then transcript tests |
+| Fold graph/misfold changes | `agentfold/folding/`, `agentfold/gates/misfold_gate.py`, then folding/misfold tests |
+| Gate changes | `agentfold/gates/`, then gate and compounding tests |
+| Ledger changes | `agentfold/ledger/`, then ledger tests |
+| Documentation shell changes | `README.md`, `README_90_SECONDS.md`, `docs/context/`, `rcc/nexus/`, folder READMEs, then documentation tests |
+
+## AI README Update Policy
+
+Every structural change should update three surfaces:
+
+1. Human explanation if user-facing behavior changes.
+2. RCC route/index files if navigation changes.
+3. Folder README if local responsibility changes.
+
+Boundary: README updates improve orientation. They do not substitute for tests, review, or evidence.
 
 ---
 
@@ -217,13 +380,15 @@ No gate pass,             no compounding.
 
 ## 🔄 Rehydration Protocol
 
-Before any agent makes code, claim, or inheritance changes:
+AgentFold rehydration is the process of restoring local context before an agent makes code, claim, or inheritance changes.
+
+Canonical sequence:
 
 ```
 anchor → read → index → route → validate → inspect → plan → patch → test → ledger → boundary
 ```
 
-**Minimum sequence:**
+**Minimum local sequence:**
 
 1. ⚓ Anchor to repo root
 2. 📖 Read `README.md`

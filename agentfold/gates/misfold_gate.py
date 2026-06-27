@@ -21,13 +21,24 @@ class GateResult:
         self.details = details or {}
 
 
+def _severity_str(event: MisfoldEvent) -> str:
+    """Extract severity as string from a MisfoldEvent."""
+    s = event.severity
+    if isinstance(s, MisfoldSeverity):
+        return s.value
+    if isinstance(s, str):
+        return s
+    return str(s)
+
+
 def check(misfolds: list[MisfoldEvent] | None = None) -> GateResult:
     """Check for critical misfolds."""
     if not misfolds:
         return GateResult(passed=True, reason="no_misfolds", details={})
 
-    critical = [m for m in misfolds if str(m.severity) == "critical"]
-    high = [m for m in misfolds if str(m.severity) == "high"]
+    severities = [_severity_str(m) for m in misfolds]
+    critical = [s for s in severities if s == "critical"]
+    high = [s for s in severities if s == "high"]
 
     if critical:
         return GateResult(

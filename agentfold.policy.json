@@ -1,0 +1,9 @@
+{
+  "require_replay_valid": true,
+  "max_high_or_critical_misfolds": 0,
+  "require_phenotype_not_blocked": true,
+  "require_ledger_hash": true,
+  "require_schema_version": "1.0.0",
+  "fail_on_authority_denial": true,
+  "claim_boundary": "ci_policy_local_gate_only"
+}

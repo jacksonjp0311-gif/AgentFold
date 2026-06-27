@@ -1,0 +1,67 @@
+{
+  "repository": "agentfold",
+  "software_layer": "AF-SA v1.4.0",
+  "purpose": "Evidence-gated agent folding scaffold for sequence-to-behavior inspection.",
+  "read_order": [
+    "README.md",
+    "README_90_SECONDS.md",
+    "docs/protocols/REHYDRATION_PROTOCOL.md",
+    "docs/software_architecture/agentfold_sa_v0_1_0_genesis_source.md",
+    "docs/cross_domain/alphafold_genome_rna_agentfold_analysis.md",
+    "docs/roadmap/agentfold_evolution_roadmap.md",
+    "docs/context/repository_context_index.json",
+    "docs/context/rcc_nexus_index.json",
+    "rcc/nexus/route_map.json"
+  ],
+  "validation": {
+    "tests": "python -m pytest -q",
+    "cli_help": "python -m agentfold.cli --help",
+    "example_genome": "python -m agentfold.cli validate-genome examples/genomes/minimal_agent_genome.json"
+  },
+  "primary_surfaces": {
+    "genome": "agentfold/genome",
+    "origin": "agentfold/origin",
+    "transcriptome": "agentfold/transcriptome",
+    "expression": "agentfold/expression",
+    "folding": "agentfold/folding",
+    "authority": "agentfold/authority",
+    "evidence": "agentfold/evidence",
+    "runtime": "agentfold/runtime",
+    "release": "agentfold/release",
+    "reports": "agentfold/reports",
+    "schemas": "agentfold/schemas",
+    "instrumentation": "agentfold/instrumentation",
+    "ci": "agentfold/ci",
+    "docs_registry": "docs/DOCS_REGISTRY.md",
+    "misfold_fixtures": "benchmarks/misfold_fixtures",
+    "releases": "releases",
+    "cross_domain_analysis": "docs/cross_domain",
+    "gates": "agentfold/gates",
+    "fitness": "agentfold/fitness",
+    "ledger": "agentfold/ledger",
+    "inheritance": "agentfold/inheritance",
+    "benchmarks": "agentfold/benchmark",
+    "adapters": "agentfold/adapters",
+    "examples": "examples",
+    "tests": "tests"
+  },
+  "genesis_source": {
+    "url": "https://gist.github.com/jacksonjp0311-gif/2d92eb0f12bba782639460f18a426f42",
+    "local_summary": "docs/software_architecture/agentfold_sa_v0_1_0_genesis_source.md",
+    "roadmap": "docs/roadmap/agentfold_evolution_roadmap.md"
+  },
+  "cross_domain_sources": {
+    "analysis": "docs/cross_domain/alphafold_genome_rna_agentfold_analysis.md",
+    "mapping": "docs/cross_domain/cross_domain_mapping.json",
+    "boundary": "software analogy only"
+  },
+  "non_claim_lock": [
+    "not AGI",
+    "not consciousness",
+    "not biological equivalence",
+    "not production readiness",
+    "not proof of safety",
+    "not proof of security",
+    "not autonomous authority"
+  ]
+}

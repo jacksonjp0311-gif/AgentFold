@@ -4,8 +4,6 @@ from __future__ import annotations
 
 import hashlib
 import itertools
-import uuid
-from datetime import datetime, timezone
 
 from agentfold.expression.events import ExpressionEvent, ExpressionType
 
@@ -63,8 +61,7 @@ class TranscriptRecorder:
         return len(self._events)
 
     def build(self) -> "AgentTranscriptome":
-        from agentfold.transcriptome.schema import AgentTranscriptome
-        import json
+        from agentfold.transcriptome.builder import build_transcriptome
         transcript_id = hashlib.sha256(
             f"{self.run_id}:{self.genome_id}:{len(self._events)}".encode()
         ).hexdigest()[:16]
@@ -75,11 +72,14 @@ class TranscriptRecorder:
         ]
         final_hash = hashlib.sha256(",".join(parts).encode()).hexdigest()[:16]
 
-        return AgentTranscriptome(
-            transcriptome_id=transcript_id,
+        transcriptome = build_transcriptome(
+            self.events,
             run_id=self.run_id,
             genome_id=self.genome_id,
             origin_certificate_id=self.origin_certificate_id,
-            final_output_hash=final_hash,
-            claim_boundary="transcript_from_recorder",
         )
+        transcriptome.transcriptome_id = transcript_id
+        transcriptome.final_output_hash = final_hash
+        transcriptome.ledger_hash = final_hash
+        transcriptome.claim_boundary = "transcript_from_recorder"
+        return transcriptome

@@ -1,0 +1,25 @@
+{
+  "repository": "agentfold",
+  "nexus_profile": "local-agent-orientation",
+  "entry_points": [
+    "README.md",
+    "README_90_SECONDS.md",
+    "docs/protocols/REHYDRATION_PROTOCOL.md",
+    "docs/software_architecture/agentfold_sa_v0_1_0_genesis_source.md",
+    "docs/cross_domain/alphafold_genome_rna_agentfold_analysis.md",
+    "docs/roadmap/agentfold_evolution_roadmap.md",
+    "rcc/nexus/route_map.json"
+  ],
+  "echo_location": {
+    "repo": "agentfold",
+    "layer": "AF-SA v1.4.0",
+    "role": "evidence-gated agent folding scaffold",
+    "validation": "python -m pytest -q",
+    "boundary": "local scaffold validation only"
+  },
+  "route_map": "rcc/nexus/route_map.json",
+  "genesis_source": "https://gist.github.com/jacksonjp0311-gif/2d92eb0f12bba782639460f18a426f42",
+  "cross_domain_analysis": "docs/cross_domain/alphafold_genome_rna_agentfold_analysis.md",
+  "mini_readme_policy": "Every non-generated subfolder should contain README.md with local purpose and boundary.",
+  "claim_boundary": "RCC-N improves repository orientation and patch routing; it does not prove correctness or safety."
+}

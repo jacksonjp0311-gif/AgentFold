@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -34,10 +35,9 @@ class LedgerEntry(BaseModel):
 
     def compute_hash(self) -> str:
         """Compute hash from all fields except entry_hash itself."""
-        import hashlib
-        data = self.model_dump_json(
+        data = json.dumps(
+            self.model_dump(exclude={"entry_hash"}),
             sort_keys=True,
-            exclude={"entry_hash"},
         )
         return hashlib.sha256(data.encode("utf-8")).hexdigest()[:32]
 
@@ -48,7 +48,20 @@ class LedgerWriter:
     def __init__(self, path: str | Path):
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self._last_hash = ""
+        self._last_hash = self._read_last_hash()
+
+    def _read_last_hash(self) -> str:
+        """Resume hashchain linkage from the last existing ledger entry."""
+        if not self.path.exists():
+            return ""
+        last_line = ""
+        with open(self.path, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    last_line = line
+        if not last_line:
+            return ""
+        return LedgerEntry(**json.loads(last_line)).entry_hash
 
     def write(self, entry: LedgerEntry) -> LedgerEntry:
         """Append a ledger entry with hashchain linkage."""
@@ -70,11 +83,11 @@ def append_entry(
     agent_id: str = "",
 ) -> LedgerEntry:
     """Convenience: append a ledger entry from a dict."""
-    writer = LedgerWriter(path)
     entry = LedgerEntry(
         ledger_id=f"le_{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}",
         run_id=run_id,
         agent_id=agent_id,
         **data,
     )
-    return writer.write(entry)
+    w = LedgerWriter(path)
+    return w.write(entry)

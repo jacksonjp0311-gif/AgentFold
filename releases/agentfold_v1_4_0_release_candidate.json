@@ -1,0 +1,26 @@
+{
+  "version": "AF-SA v1.4.0",
+  "name": "AgentFold v1.4.0 release candidate",
+  "claim_status": "release candidate for local validation",
+  "required_validation": [
+    "python -m pytest -q",
+    "python -m agentfold.cli --help",
+    "python -m agentfold.cli validate-genome examples/genomes/minimal_agent_genome.json",
+    "python -m agentfold.cli release-validate"
+  ],
+  "release_surfaces": [
+    "agentfold.policy.json",
+    "docs/DOCS_REGISTRY.md",
+    "releases/agentfold_v1_4_0_release_candidate.json",
+    "agentfold/release/validator.py"
+  ],
+  "non_claim_boundary": [
+    "not production readiness",
+    "not proof of safety",
+    "not proof of security",
+    "not AGI",
+    "not consciousness",
+    "not biological equivalence",
+    "not autonomous authority"
+  ]
+}

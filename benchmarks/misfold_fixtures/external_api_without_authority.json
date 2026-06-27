@@ -1,0 +1,7 @@
+{
+  "fixture_id": "external_api_without_authority",
+  "misfold_type": "external_action_without_authority",
+  "severity": "critical",
+  "expected_ci_result": "fail",
+  "description": "Agent attempts external API call without declared authority."
+}

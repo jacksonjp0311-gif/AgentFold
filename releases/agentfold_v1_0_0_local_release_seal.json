@@ -1,0 +1,72 @@
+{
+  "version": "AF-SA v1.0.0",
+  "name": "AgentFold v1.0.0 local release seal",
+  "claim_status": "local validated checkpoint",
+  "required_validation": [
+    "python -m pytest -q",
+    "python -m agentfold.cli --help",
+    "python -m agentfold.cli validate-genome examples/genomes/minimal_agent_genome.json"
+  ],
+  "release_functional": {
+    "origin": true,
+    "genome": true,
+    "transcript": true,
+    "fold_graph": true,
+    "prediction": true,
+    "misfold": true,
+    "fitness": true,
+    "phenotype": true,
+    "authority": true,
+    "gate": true,
+    "replay": true,
+    "ledger": true,
+    "tests": true,
+    "docs": true,
+    "nonclaim": true,
+    "overclaim_pressure": 0.0
+  },
+  "non_claim_boundary": [
+    "not production readiness",
+    "not proof of safety",
+    "not proof of security",
+    "not AGI",
+    "not consciousness",
+    "not biological equivalence",
+    "not autonomous authority"
+  ],
+  "continuation": [
+    {
+      "version": "AF-SA v1.1.0",
+      "adds": [
+        "persisted evidence packet IO",
+        "replay verification",
+        "run diffing",
+        "Markdown evidence reports",
+        "JSON Schema export"
+      ],
+      "boundary": "continues local validation only"
+    },
+    {
+      "version": "AF-SA v1.2.0",
+      "adds": [
+        "session event recording",
+        "event-populated transcriptomes",
+        "guarded tool execution",
+        "adapter contract",
+        "CLI session lifecycle"
+      ],
+      "boundary": "continues local validation only"
+    },
+    {
+      "version": "AF-SA v1.3.0",
+      "adds": [
+        "CI policy",
+        "CI verifier",
+        "CI summary artifacts",
+        "adversarial misfold fixtures",
+        "GitHub Actions template"
+      ],
+      "boundary": "continues local validation only"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "repository": "agentfold",
+  "version": "AF-SA v1.4.0",
+  "routes": [
+    {
+      "intent": "genome_schema_or_validation",
+      "paths": ["agentfold/genome", "examples/genomes", "tests/test_agent_genome_schema.py"],
+      "validation": "python -m pytest -q tests/test_agent_genome_schema.py"
+    },
+    {
+      "intent": "origin_rehydration_alignment",
+      "paths": ["agentfold/origin", "docs/protocols", "tests/test_origin_alignment.py"],
+      "validation": "python -m pytest -q tests/test_origin_alignment.py"
+    },
+    {
+      "intent": "transcript_capture",
+      "paths": ["agentfold/transcriptome", "agentfold/expression", "tests/test_transcript_recorder.py"],
+      "validation": "python -m pytest -q tests/test_transcript_recorder.py"
+    },
+    {
+      "intent": "fold_graph_or_misfolds",
+      "paths": ["agentfold/folding", "agentfold/gates/misfold_gate.py", "tests/test_fold_graph_builder.py", "tests/test_misfold_detection.py"],
+      "validation": "python -m pytest -q tests/test_fold_graph_builder.py tests/test_misfold_detection.py"
+    },
+    {
+      "intent": "gate_or_compounding_logic",
+      "paths": ["agentfold/gates", "tests/test_compounding_gate.py"],
+      "validation": "python -m pytest -q tests/test_compounding_gate.py tests/test_no_compounding_without_origin.py tests/test_no_claim_elevation_without_evidence.py tests/test_no_unauthorized_tool_call.py"
+    },
+    {
+      "intent": "ledger_hashchain",
+      "paths": ["agentfold/ledger", "tests/test_ledger_hashchain.py"],
+      "validation": "python -m pytest -q tests/test_ledger_hashchain.py"
+    },
+    {
+      "intent": "repository_context_shell",
+      "paths": ["README.md", "README_90_SECONDS.md", "docs/context", "docs/protocols", "docs/software_architecture", "docs/roadmap", "rcc/nexus"],
+      "validation": "python -m pytest -q tests/test_repository_context_shell.py"
+    },
+    {
+      "intent": "genesis_architecture_alignment",
+      "paths": ["docs/software_architecture/agentfold_sa_v0_1_0_genesis_source.md", "docs/roadmap/agentfold_evolution_roadmap.md", "README.md"],
+      "validation": "python -m pytest -q tests/test_repository_context_shell.py"
+    },
+    {
+      "intent": "cross_domain_architecture_evolution",
+      "paths": ["docs/cross_domain", "agentfold/folding/phenotype.py", "tests/test_agent_phenotype.py"],
+      "validation": "python -m pytest -q tests/test_agent_phenotype.py tests/test_repository_context_shell.py"
+    },
+    {
+      "intent": "v1_release_functional",
+      "paths": ["agentfold/authority", "agentfold/evidence", "agentfold/runtime", "agentfold/release", "releases", "tests/test_v1_authority_evidence_pipeline.py"],
+      "validation": "python -m pytest -q tests/test_v1_authority_evidence_pipeline.py tests/test_repository_context_shell.py"
+    },
+    {
+      "intent": "v1_1_persisted_evidence_replay",
+      "paths": ["agentfold/evidence", "agentfold/reports", "agentfold/schemas", "agentfold/cli.py", "tests/test_v1_1_io_cli_surfaces.py"],
+      "validation": "python -m pytest -q tests/test_v1_1_io_cli_surfaces.py tests/test_repository_context_shell.py"
+    },
+    {
+      "intent": "v1_2_adapter_instrumentation",
+      "paths": ["agentfold/instrumentation", "agentfold/adapters/base.py", "agentfold/transcriptome/recorder.py", "agentfold/cli.py", "tests/test_v1_2_instrumentation.py"],
+      "validation": "python -m pytest -q tests/test_v1_2_instrumentation.py tests/test_transcript_recorder.py tests/test_repository_context_shell.py"
+    },
+    {
+      "intent": "v1_3_ci_gate_misfold_benchmarks",
+      "paths": ["agentfold/ci", "agentfold.policy.json", "benchmarks/misfold_fixtures", ".github/workflows/agentfold-ci.yml", "tests/test_v1_3_ci_gate.py"],
+      "validation": "python -m pytest -q tests/test_v1_3_ci_gate.py tests/test_repository_context_shell.py"
+    },
+    {
+      "intent": "v1_4_release_candidate_validation",
+      "paths": ["agentfold/release/validator.py", "docs/DOCS_REGISTRY.md", "releases/agentfold_v1_4_0_release_candidate.json", "tests/test_v1_4_release_validation.py"],
+      "validation": "python -m pytest -q tests/test_v1_4_release_validation.py tests/test_repository_context_shell.py"
+    }
+  ],
+  "global_validation": "python -m pytest -q",
+  "non_claim_boundary": "Route validation is local repository validation only."
+}

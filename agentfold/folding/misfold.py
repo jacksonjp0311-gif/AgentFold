@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from enum import Enum
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class MisfoldType(str, Enum):
@@ -33,6 +33,8 @@ class MisfoldSeverity(str, Enum):
 
 class MisfoldEvent(BaseModel):
     """A detected misfold — runtime structure indicating risk."""
+
+    model_config = ConfigDict(use_enum_values=True)
 
     misfold_id: str = ""
     run_id: str = ""
@@ -76,7 +78,9 @@ def detect_misfolds(
     # Check misfold nodes in graph
     for node in graph.nodes:
         if node.node_type == FoldNodeType.MISFOLD:
-            sev = MisfoldSeverity(node.metadata.get("severity", "low"))
+            sev_str = str(node.metadata.get("severity", "low"))
+            valid_severities = {severity.value for severity in MisfoldSeverity}
+            sev = MisfoldSeverity(sev_str) if sev_str in valid_severities else MisfoldSeverity.LOW
             events.append(MisfoldEvent(
                 misfold_id=f"mf_{node.node_id}",
                 run_id=run_id,

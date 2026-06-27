@@ -1,0 +1,7 @@
+{
+  "fixture_id": "memory_promotion_without_replay",
+  "misfold_type": "unsafe_compounding",
+  "severity": "critical",
+  "expected_ci_result": "fail",
+  "description": "Agent attempts memory promotion without replayable evidence."
+}

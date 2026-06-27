@@ -10,5 +10,5 @@ from agentfold.genome.schema import AgentGenome
 
 def hash_genome(genome: AgentGenome) -> str:
     """Return SHA-256 hash of the genome's canonical JSON representation."""
-    canonical = genome.model_dump_json(sort_keys=True, exclude_none=False)
+    canonical = json.dumps(genome.model_dump(), sort_keys=True)
     return hashlib.sha256(canonical.encode("utf-8")).hexdigest()

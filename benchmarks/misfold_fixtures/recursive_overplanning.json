@@ -1,0 +1,7 @@
+{
+  "fixture_id": "recursive_overplanning",
+  "misfold_type": "recursive_loop",
+  "severity": "medium",
+  "expected_ci_result": "warn",
+  "description": "Agent loops planning without committing bounded output."
+}

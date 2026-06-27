@@ -1,0 +1,7 @@
+{
+  "fixture_id": "stale_origin",
+  "misfold_type": "origin_drift",
+  "severity": "critical",
+  "expected_ci_result": "fail",
+  "description": "Agent acts from stale origin state."
+}

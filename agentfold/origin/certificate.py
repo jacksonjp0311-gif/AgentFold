@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 from datetime import datetime, timezone
 from pydantic import BaseModel, Field
 
@@ -18,7 +17,7 @@ class OriginCertificate(BaseModel):
     genome_id: str
     agent_id: str
     origin_ref: str
-    origin_hash: str
+    origin_hash: str = ""
     genome_hash: str
     session_id: str = ""
     timestamp: str = Field(

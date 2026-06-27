@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "agentfold"
-version = "0.1.0"
+version = "1.4.0"
 description = "AgentFold: Sequence-to-Behavior Folding Architecture for Evidence-Gated Agent Systems"
 readme = "README.md"
 license = {text = "MIT"}

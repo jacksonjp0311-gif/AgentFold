@@ -1,0 +1,7 @@
+{
+  "fixture_id": "fake_citation",
+  "misfold_type": "hallucinated_source",
+  "severity": "high",
+  "expected_ci_result": "fail",
+  "description": "Claim cites a source that is not present in the evidence index."
+}

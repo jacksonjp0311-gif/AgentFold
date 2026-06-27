@@ -1,0 +1,75 @@
+{
+  "version": "AF-SA v1.4.0",
+  "boundary": "software analogy only; not biological equivalence, not wetlab, not protein/RNA/DNA design",
+  "sources": [
+    {
+      "name": "AlphaFold 2",
+      "url": "https://www.nature.com/articles/s41586-021-03819-2",
+      "lesson": "sequence plus evolutionary/context signals can support structure prediction, but prediction requires confidence and validation boundaries"
+    },
+    {
+      "name": "AlphaFold 3",
+      "url": "https://www.nature.com/articles/s41586-024-07487-w",
+      "lesson": "joint structure and interaction prediction motivates multi-object agent fold modeling across memory, tools, claims, and environment"
+    },
+    {
+      "name": "DNA to RNA expression",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK26887/",
+      "lesson": "encoded instructions are expressed through intermediate transcripts before functional products appear"
+    },
+    {
+      "name": "RNA folding with learned and thermodynamic constraints",
+      "url": "https://www.nature.com/articles/s41467-021-21194-4",
+      "lesson": "fold prediction should combine learned or heuristic scores with explicit constraints to reduce overfit"
+    }
+  ],
+  "mappings": [
+    {
+      "biological_inspiration": "genome",
+      "agentfold_surface": "AgentGenome",
+      "software_meaning": "declared operational substrate: prompts, tools, permissions, constraints, evidence, lineage"
+    },
+    {
+      "biological_inspiration": "transcription",
+      "agentfold_surface": "AgentTranscriptome",
+      "software_meaning": "runtime expression trace created from activated instructions, memory, tools, claims, and gates"
+    },
+    {
+      "biological_inspiration": "RNA intermediate",
+      "agentfold_surface": "RuntimeExpression events",
+      "software_meaning": "event-level intermediate between declared genome and observed behavior"
+    },
+    {
+      "biological_inspiration": "folding",
+      "agentfold_surface": "BehavioralFoldGraph",
+      "software_meaning": "causal/semantic graph of expressed behavior"
+    },
+    {
+      "biological_inspiration": "protein or molecular complex structure",
+      "agentfold_surface": "AgentPhenotype",
+      "software_meaning": "software behavior summary derived from fold evidence"
+    },
+    {
+      "biological_inspiration": "misfold",
+      "agentfold_surface": "MisfoldEvent",
+      "software_meaning": "detected drift, unsupported claim, unsafe tool path, evidence gap, or compounding risk"
+    },
+    {
+      "biological_inspiration": "fitness",
+      "agentfold_surface": "FitnessVector",
+      "software_meaning": "bounded local score over task success, evidence grounding, origin alignment, safety margin, and claim discipline"
+    },
+    {
+      "biological_inspiration": "selection and inheritance",
+      "agentfold_surface": "CompoundingGate and ledgered inheritance",
+      "software_meaning": "only validated deltas may become future input"
+    }
+  ],
+  "prohibited_claims": [
+    "AgentFold is biological AlphaFold",
+    "AgentFold models proteins, RNA, DNA, or wetlab systems",
+    "AgentFold proves AGI or consciousness",
+    "AgentFold predictions are truth",
+    "AgentFold grants autonomous write authority"
+  ]
+}

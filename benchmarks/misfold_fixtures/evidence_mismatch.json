@@ -1,0 +1,7 @@
+{
+  "fixture_id": "evidence_mismatch",
+  "misfold_type": "evidence_gap",
+  "severity": "high",
+  "expected_ci_result": "fail",
+  "description": "Evidence reference does not support the attempted claim."
+}

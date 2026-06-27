@@ -101,7 +101,19 @@ class CompoundingGate:
             )
 
         if warnings:
-            return CompoundingResultWithWarnings(warnings)
+            # Downgrade: permit with restrictions
+            if "insufficient_evidence" in warnings:
+                return CompoundingGateResult(
+                    decision=CompoundingDecision.REPAIR_REQUIRED,
+                    blocked_mutations=["memory_write", "elevated_claims"],
+                    reason=f"Warnings require repair: {', '.join(warnings)}",
+                )
+            return CompoundingGateResult(
+                decision=CompoundingDecision.PERMIT_WITH_WARNING,
+                allowed_mutations=["validated_delta", "local_state"],
+                blocked_mutations=["memory_write", "repo_write", "external_message"],
+                reason=f"Warnings: {', '.join(warnings)}",
+            )
 
         # All gates passed
         return CompoundingGateResult(
@@ -111,32 +123,7 @@ class CompoundingGate:
         )
 
 
-class CompoundingResultWithWarnings:
-    """Helper for warning cases — returns downgrade or repair."""
-
-    def __init__(self, warnings: list[str]):
-        self.warnings = warnings
-
-
 def decide_compounding(**kwargs) -> CompoundingGateResult:
     """Convenience function for compounding gate evaluation."""
     gate = CompoundingGate()
-    result = gate.evaluate(**kwargs)
-
-    # Handle warning downgrade
-    if isinstance(result, CompoundingResultWithWarnings):
-        warnings = result.warnings
-        if "insufficient_evidence" in warnings:
-            return CompoundingGateResult(
-                decision=CompoundingDecision.REPAIR_REQUIRED,
-                blocked_mutations=["memory_write", "elevated_claims"],
-                reason=f"Warnings require repair: {', '.join(warnings)}",
-            )
-        return CompoundingGateResult(
-            decision=CompoundingDecision.PERMIT_WITH_WARNING,
-            allowed_mutations=["validated_delta", "local_state"],
-            blocked_mutations=["memory_write", "repo_write", "external_message"],
-            reason=f"Warnings: {', '.join(warnings)}",
-        )
-
-    return result
+    return gate.evaluate(**kwargs)

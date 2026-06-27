@@ -1,0 +1,22 @@
+{
+  "architecture": "AF-SA v1.4.0",
+  "checks": {
+    "cache_scan_completed": true,
+    "cli_help": true,
+    "genome_validation": true,
+    "policy": true,
+    "readme": true,
+    "readme_90_seconds": true,
+    "release_functional": true,
+    "release_manifest": true,
+    "route_map": true,
+    "tests": true
+  },
+  "claim_boundary": "release_validation_not_production_readiness",
+  "failures": [],
+  "passed": true,
+  "version": "1.4.0",
+  "warnings": [
+    "generated_cache_present_after_validation"
+  ]
+}

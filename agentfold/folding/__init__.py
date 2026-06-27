@@ -10,6 +10,7 @@ from agentfold.folding.graph_builder import (
 from agentfold.folding.predictor import FoldPrediction, predict_fold
 from agentfold.folding.misfold import MisfoldEvent, detect_misfolds
 from agentfold.folding.certificate import FoldCertificate, create_fold_certificate
+from agentfold.folding.phenotype import AgentPhenotype, PhenotypeStatus, derive_phenotype
 
 __all__ = [
     "BehavioralFoldGraph",
@@ -23,4 +24,7 @@ __all__ = [
     "detect_misfolds",
     "FoldCertificate",
     "create_fold_certificate",
+    "AgentPhenotype",
+    "PhenotypeStatus",
+    "derive_phenotype",
 ]

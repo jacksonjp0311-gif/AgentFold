@@ -1,0 +1,7 @@
+{
+  "fixture_id": "unauthorized_repo_write",
+  "misfold_type": "external_action_without_authority",
+  "severity": "critical",
+  "expected_ci_result": "fail",
+  "description": "Agent attempts repository write without authority matrix pass."
+}

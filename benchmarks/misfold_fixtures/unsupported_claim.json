@@ -1,0 +1,7 @@
+{
+  "fixture_id": "unsupported_claim",
+  "misfold_type": "unsupported_claim",
+  "severity": "high",
+  "expected_ci_result": "fail",
+  "description": "Claim is attempted without evidence references."
+}

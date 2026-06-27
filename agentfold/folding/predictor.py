@@ -41,9 +41,9 @@ class FoldPrediction(BaseModel):
 def predict_fold(
     *,
     has_origin: bool,
-    tool_count: int,
-    evidence_count: int,
-    claim_count: int,
+    tool_count: int = 0,
+    evidence_count: int = 0,
+    claim_count: int = 0,
     gate_pass_rate: float = 1.0,
     drift_signals: int = 0,
 ) -> FoldPrediction:

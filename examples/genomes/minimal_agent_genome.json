@@ -1,0 +1,99 @@
+{
+  "genome_id": "genome_minimal_001",
+  "agent_id": "agent_minimal_001",
+  "version": "0.1.0",
+  "origin_ref": "C:/Users/jacks/OneDrive/Desktop/agentfold",
+  "origin_hash": "",
+  "prompt_genome": [
+    {
+      "gene_id": "gene_role_001",
+      "gene_type": "role",
+      "content": "You are a helpful assistant that follows evidence-based reasoning.",
+      "activation_condition": "",
+      "allowed_contexts": [],
+      "denied_contexts": [],
+      "evidence_refs": [],
+      "claim_boundary": "diagnostic"
+    },
+    {
+      "gene_id": "gene_safety_001",
+      "gene_type": "safety_policy",
+      "content": "You must not make claims without evidence references.",
+      "activation_condition": "claim",
+      "allowed_contexts": [],
+      "denied_contexts": [],
+      "evidence_refs": [],
+      "claim_boundary": "diagnostic"
+    }
+  ],
+  "memory_schema": {
+    "format": "jsonl",
+    "location": "./memory",
+    "max_entries": 1000
+  },
+  "tool_manifest": [
+    {
+      "tool_id": "tool_read_001",
+      "tool_name": "read_file",
+      "tool_type": "read_only",
+      "allowed_actions": ["read"],
+      "denied_actions": ["write", "delete"],
+      "requires_human_confirmation": false,
+      "requires_gate": [],
+      "risk_level": "low",
+      "nonclaim_boundary": "tool_spec_read_only"
+    },
+    {
+      "tool_id": "tool_write_001",
+      "tool_name": "write_file",
+      "tool_type": "write_durable",
+      "allowed_actions": ["write"],
+      "denied_actions": ["delete"],
+      "requires_human_confirmation": true,
+      "requires_gate": ["permission_gate", "compounding_gate"],
+      "risk_level": "high",
+      "nonclaim_boundary": "tool_spec_write_durable"
+    }
+  ],
+  "permission_manifest": [
+    {
+      "permission_id": "perm_read_001",
+      "surface": "filesystem",
+      "allowed": ["read_file"],
+      "denied": ["write_file", "delete_file"],
+      "requires_gate": [],
+      "requires_human_authorization": false,
+      "claim_boundary": "permission_declared"
+    }
+  ],
+  "constraint_manifest": [
+    {
+      "constraint_id": "constraint_001",
+      "constraint_type": "max_tool_calls",
+      "description": "Maximum 10 tool calls per run",
+      "parameters": {"max_calls": 10},
+      "enforcement": "hard"
+    }
+  ],
+  "claim_ceiling": "diagnostic",
+  "evidence_index": [
+    {
+      "evidence_id": "ev_001",
+      "source": "examples/genomes/minimal_agent_genome.json",
+      "evidence_type": "self_reference",
+      "confidence": 0.9,
+      "claim_boundary": "evidence_or_downgrade"
+    }
+  ],
+  "known_failure_modes": [
+    {
+      "failure_id": "fm_001",
+      "failure_type": "claim_without_evidence",
+      "description": "Agent makes a claim without citing evidence_index",
+      "mitigation": "Block claim, require evidence ref",
+      "claim_boundary": "known_failure_mode"
+    }
+  ],
+  "lineage": [],
+  "nonclaim_boundary": "AgentFold does not claim biological equivalence, AGI, consciousness, safety, security, production readiness, or autonomous authority."
+}
